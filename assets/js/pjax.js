@@ -8,7 +8,7 @@ $(document).on('pjax:send', function() {
 
 $(document).on('pjax:complete', function() {
   $("#pjax-box").removeClass("active");
-  
+
   fix_url();
 
   $(menu_a).each(function(){
@@ -27,7 +27,6 @@ $(document).on('pjax:complete', function() {
     $(this).children('a').removeClass('current');
     $(this.querySelectorAll('ul li ul li a')).each(function() {
       if($(this).hasClass('active')) {
-        console.log(this);
         $(menu_parent[i]).children('a').addClass('current');
       }
     })
