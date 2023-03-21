@@ -82,6 +82,7 @@ $(document).ready(function() {
   $(menu_parent).each(function(i) {
     menu_parent_hight[i] = $(this).innerHeight();
     menu_parent_a_hight[i] = $(this).children('a').innerHeight();
+    $(this).children('a').append('<span class="arrow iconfont icon-RectangleCopy8"></span>');
     $(this).height(menu_parent_a_hight[i]);
     $(this).children('a').on('click', function(e) {
       e.preventDefault();

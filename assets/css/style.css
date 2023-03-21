@@ -979,10 +979,10 @@ main .new ul li .info .date span {
 
 @media screen and (max-width: 500px) {
   main .new ul li .cover {
-    height: 260px;
+    height: 280px;
   }
   main .new ul li section {
-    min-height: calc(100% - 260px);
+    min-height: calc(100% - 280px);
   }
   main .new ul li .title a {
     font-size: 14px;
@@ -1004,10 +1004,10 @@ main .new ul li .info .date span {
 
 @media screen and (max-width: 400px) {
   main .new ul li .cover {
-    height: 180px;
+    height: 200px;
   }
   main .new ul li section {
-    min-height: calc(100% - 180px);
+    min-height: calc(100% - 200px);
   }
 }
 
