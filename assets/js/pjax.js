@@ -38,20 +38,17 @@ img_preview();
 
 
 const fix_url = () => {
-  const data_pjax_a = $('[data-pjax] a, a[data-pjax]');
-  if(data_pjax_a.length > 0) {
-    $(data_pjax_a).each(function() {
-      if($(this).attr('href')) {
-        cur_url = $(this).attr('href').replace(/\/\?_pjax=%23pjax-box/, '');
-        if(cur_url.indexOf('/page/1') > -1) {
-          cur_url = cur_url.replace(/\/page\/1/, '');
-        } else if(cur_url.indexOf('/page/1/') > -1) {
-          cur_url = cur_url.replace(/\/page\/1\//, '');
-        }
-        $(this).attr('href', cur_url);
+  $('[data-pjax] a, a[data-pjax]').each(function() {
+    if($(this).attr('href')) {
+      cur_url = $(this).attr('href').replace(/\/\?_pjax=%23pjax-box/, '');
+      if(cur_url.indexOf('/page/1') > -1) {
+        cur_url = cur_url.replace(/\/page\/1/, '');
+      } else if(cur_url.indexOf('/page/1/') > -1) {
+        cur_url = cur_url.replace(/\/page\/1\//, '');
       }
-    })
-  }
+      $(this).attr('href', cur_url);
+    }
+  })
 }
 fix_url();
 
