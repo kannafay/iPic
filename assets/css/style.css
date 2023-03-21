@@ -19,6 +19,7 @@ html, body {
 
 a {
   text-decoration: none;
+  outline: 0;
 }
 
 li {
@@ -29,7 +30,8 @@ img {
   user-select: none;
 }
 
-#pjax-box {
+#pjax-box,
+#title {
   transition: var(--tr);
 }
 #pjax-box.active {
@@ -37,12 +39,9 @@ img {
   transform: translateY(20px);
   opacity: 0;
 }
-
-section {
-  min-height: calc(100% - 450px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+#title.active {
+  animation-direction: alternate;
+  opacity: 0;
 }
 
 /* scrollbar */
@@ -242,6 +241,7 @@ header .search form input {
   font-size: 16px;
   font-weight: 700;
   color: #333;
+  caret-color: #333;
   background-color: #00000000;
 }
 header .search form input,
@@ -294,7 +294,7 @@ footer a:hover {
   transition: var(--tr);
 }
 .container.active {
-  transform: translateX(400px);
+  transform: translateX(300px);
 }
 
 aside {
@@ -303,7 +303,7 @@ aside {
   top: 70px;
   padding: 20px;
   transform: translateX(-100%);
-  width: 400px;
+  width: 300px;
   height: calc(100% - 70px);
   background-color: #fff;
   border-right: 1px solid #eee;
@@ -337,7 +337,8 @@ aside .main_menu > ul > li.menu-item-has-children > a {
   justify-content: space-between;
 }
 aside .main_menu > ul > li.menu-item-has-children > a > .arrow {
-  font-size: 20px;
+  font-size: 19px;
+  color: #999;
   transition: var(--tr);
 }
 aside .main_menu > ul > li.menu-item-has-children > a > .arrow.active {
@@ -421,6 +422,7 @@ main .new ul li .cover {
   display: block;
   height: 450px;
 }
+
 main .new ul li .cover img {
   width: 100%;
   height: 100%;
@@ -437,7 +439,12 @@ main .new ul li:hover .cover img {
 
 main .new ul li section {
   padding: 10px 5px 5px 5px;
+  min-height: calc(100% - 450px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
 main .new ul li .title {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -585,24 +592,24 @@ main .new ul li .info .date span {
 
 
 .single {
+  width: 100%;
   clear: left;
-  margin-top: 15px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
 }
-.single .left {
+.single .main {
   width: calc(100% - 350px);
 }
-.single .left .text {
+.single .main .text {
   padding: 20px;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0 0 0 / .1);
-  transition: var(--tr);
 }
 
 
-.single .left .text .title {
+.single .main .text .title {
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px dashed #eee;
@@ -610,7 +617,7 @@ main .new ul li .info .date span {
   font-size: 18px;
 }
 
-.single .left .text .content > * {
+.single .main .text .content > * {
   max-width: 100%;
   color: #333;
   margin-top: 15px;
@@ -618,51 +625,61 @@ main .new ul li .info .date span {
   word-break: break-all;
   word-wrap: break-word;
 }
-.single .left .text .content > *:first-child {
+.single .main .text .content > *:first-child {
   margin-top: 0;
 }
-.single .left .text .content .has-text-align-center,
-.single .left .text .content .aligncenter,
-.single .left .text .content .aligncenter .wp-element-caption {
+.single .main .text .content .has-text-align-center,
+.single .main .text .content .aligncenter,
+.single .main .text .content .aligncenter .wp-element-caption {
   text-align: center;
 }
-.single .left .text .content .has-text-align-right,
-.single .left .text .content .alignright,
-.single .left .text .content .alignright .wp-element-caption {
+.single .main .text .content .has-text-align-right,
+.single .main .text .content .alignright,
+.single .main .text .content .alignright .wp-element-caption {
   text-align: right;
 }
 
-.single .left .text .content p {
+.single .main .text .content p {
   line-height: 1.5;
 }
-.single .left .text .content a {
+.single .main .text .content a {
   color: #999;
   text-decoration: underline;
   transition: var(--tr);
 }
-.single .left .text .content a:hover {
+.single .main .text .content a:hover {
   color: #333;
 }
-.single .left .text .content img,
-.single .left .text .content video,
-.single .left .text .content audio {
+.single .main .text .content img,
+.single .main .text .content video,
+.single .main .text .content audio {
   max-width: 100%;
   border-radius: 5px;
 }
 
-.single .left .text .content img {
+.single .main .text .content p a,
+.single .main .text .content .wp-block-image a {
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+.single .main .text .content img {
   height: auto;
   vertical-align: middle;
+  transition: var(--tr);
+}
+.single .main .text .content img:hover {
+  box-shadow: 0 0 10px rgba(0 0 0 / .05);
 }
 
-.single .left .text .content p img {
+.single .main .text .content p a img {
   margin-top: 15px;
 }
-.single .left .text .content p img:first-child {
+.single .main .text .content p a:first-child img {
   margin-top: 0;
 }
 
-.single .left .text .content code {
+.single .main .text .content code {
   padding: 2px 6px;
   background-color: #f5f5f5;
   color: #333;
@@ -672,14 +689,14 @@ main .new ul li .info .date span {
   
 }
 
-.single .left .text .content pre {
+.single .main .text .content pre {
   padding: 10px;
   border-radius: 5px;
   overflow: auto;
   background-color: #f5f5f5;
 }
 
-.single .left .text .content pre code {
+.single .main .text .content pre code {
   line-height: 1.5;
   background-color: #00000000;
   color: #666;
@@ -689,67 +706,67 @@ main .new ul li .info .date span {
 
 
 
-.single .left .text .content ul, 
-.single .left .text .content ol {
+.single .main .text .content ul, 
+.single .main .text .content ol {
   margin-left: 1em;
 }
 
-.single .left .text .content ul li, 
-.single .left .text .content ol li {
+.single .main .text .content ul li, 
+.single .main .text .content ol li {
   line-height: 1.8;
   margin-left: 20px;
   width: calc(100% - 40px);
   word-break: break-all;
   word-wrap: break-word;
 }
-.single .left .text .content ul li {
+.single .main .text .content ul li {
   list-style: disc;
 }
-.single .left .text .content ol li {
+.single .main .text .content ol li {
   list-style: decimal;
 }
 
 
-.single .left .text .content .wp-block-table {
+.single .main .text .content .wp-block-table {
   overflow: auto;
 }
-.single .left .text .content .wp-block-table table {
+.single .main .text .content .wp-block-table table {
   width: 100%;
   border-collapse: collapse;
 }
-.single .left .text .content .wp-block-table table.has-fixed-layout {
+.single .main .text .content .wp-block-table table.has-fixed-layout {
   table-layout: fixed;
 }
-.single .left .text .content .wp-block-table tr {
+.single .main .text .content .wp-block-table tr {
   transition: var(--tr);
 }
-.single .left .text .content .wp-block-table tr:hover {
+.single .main .text .content .wp-block-table tr:hover {
   background-color: #f5f5f5;
 }
-.single .left .text .content .wp-block-table table, 
-.single .left .text .content .wp-block-table th, 
-.single .left .text .content .wp-block-table td {
+.single .main .text .content .wp-block-table table, 
+.single .main .text .content .wp-block-table th, 
+.single .main .text .content .wp-block-table td {
   font-size: 15px;
   border: 1px solid #e2e2e2;
 }
-.single .left .text .content .wp-block-table th, 
-.single .left .text .content .wp-block-table td {
+.single .main .text .content .wp-block-table th, 
+.single .main .text .content .wp-block-table td {
   padding: 10px;
 }
 
-.single .left .text .content .wp-block-table th {
+.single .main .text .content .wp-block-table th {
   background-color: #333;
   color: #fff;
   text-shadow: 0 0 5px rgba(0 0 0 / .2);
 }
 
 
-.single .left .text .content blockquote {
+.single .main .text .content blockquote {
   border-left: 4px solid #999;
   padding: 10px;
   color: #333;
 }
-.single .left .text .content blockquote cite {
+.single .main .text .content blockquote cite {
   display: inline-block;
   font-size: 14px;
   color: #999;
@@ -757,57 +774,126 @@ main .new ul li .info .date span {
 }
 
 
-.single .left .text .content h1 {
+.single .main .text .content h1 {
   font-size: 20px;
   color: #333;
 }
-.single .left .text .content h2 {
+.single .main .text .content h2 {
   font-size: 18px;
   color: #333;
 }
-.single .left .text .content h3 {
+.single .main .text .content h3 {
   font-size: 16px;
   color: #333;
 }
-.single .left .text .content h4 {
+.single .main .text .content h4 {
   font-size: 15px;
   color: #333;
 }
-.single .left .text .content h5 {
+.single .main .text .content h5 {
   font-size: 14px;
   color: #333;
 }
-.single .left .text .content h6 {
+.single .main .text .content h6 {
   font-size: 14px;
   color: #333;
   font-weight: 400;
 }
 
 
-
-
-
-
-
-
-
 .single .side {
   width: 330px;
+  
+}
+.single .side > * {
   padding: 20px;
+  margin-bottom: 20px;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0 0 0 / .1);
+}
+.single .side > *:last-child {
+  margin-bottom: 0;
+}
+
+.single .side > * > h3 {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.single .side .cate .post-categories {
+  width: 100%;
+}
+.single .side .cate .post-categories li a {
+  display: block;
+  padding: 4px 6px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #999;
   transition: var(--tr);
 }
+.single .side .cate .post-categories li a:hover,
+.single .side .cate .post-categories li a:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.single .side .tag .post-tags {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+.single .side .tag .post-tags a {
+  width: 100%;
+  display: block;
+  padding: 4px 6px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #999;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: var(--tr);
+}
+.single .side .tag .post-tags a:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+.single .side .tag .post-tags a.no-tag:hover {
+  background-color: #00000000;
+  color: #999;
+}
+
+.single .side .cate .post-categories li a::before {
+  content: '\e6ad';
+  font-family: 'iconfont';
+  margin-right: 2px;
+}
+.single .side .tag .post-tags a::before {
+  content: '\e6d3';
+  font-family: 'iconfont';
+  margin-right: 2px;
+}
+.single .side .tag .post-tags a.no-tag::before {
+  content: '';
+}
+.single .side .cate .post-categories li a:hover::before,
+.single .side .tag .post-tags a:hover::before {
+  color: #333;
+}
+
+
+
 
 
 
 @media screen and (min-width: 1667px) {
   .container.active {
-    width: calc(100% - 400px);
+    width: calc(100% - 300px);
   }
 }
-
 
 
 @media screen and (max-width: 800px) {
@@ -817,4 +903,18 @@ main .new ul li .info .date span {
   .container.active {
     transform: translateX(260px);
   }
+}
+
+
+
+
+
+.container.active {
+  width: calc(100% - 300px);
+}
+main .new ul li .cover {
+  height: 200px;
+}
+main .new ul li section {
+  min-height: calc(100% - 200px);
 }

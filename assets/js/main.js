@@ -22,7 +22,6 @@ $(document).on('click', '.container', () => {
     header .menu-switch .box,
     header .menu-switch .box span.open,
     header .menu-switch .box span.close,
-    
     header .title,
     header .search,
     header .search-switch .box,
@@ -61,7 +60,6 @@ $(document).ready(function() {
   menu_parent = $('aside .main_menu > ul > li.menu-item-has-children');
   menu_parent_hight = [];
   menu_parent_a_hight = [];
-  
   menu_a = $('aside .main_menu ul li a');
   $(menu_a).each(function() {
     if(!$(this).parent().hasClass('menu-item-has-children')) {
@@ -74,8 +72,8 @@ $(document).ready(function() {
   })
 
   $(menu_parent).each(function(i) {
-    menu_parent_hight[i] = $(this).outerHeight();
-    menu_parent_a_hight[i] = $(this).children('a').outerHeight();
+    menu_parent_hight[i] = $(this).innerHeight();
+    menu_parent_a_hight[i] = $(this).children('a').innerHeight();
     $(this).height(menu_parent_a_hight[i]);
     $(this).children('a').on('click', function(e) {
       e.preventDefault();
