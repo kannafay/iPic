@@ -15,19 +15,27 @@ $(document).on('click', 'header .menu-switch', () => {
     header .search-switch .box span.close
   `).removeClass('active');
 })
-$(document).on('click', '.container', () => {
-  $(`
-    aside,
-    .container,
-    header .menu-switch .box,
-    header .menu-switch .box span.open,
-    header .menu-switch .box span.close,
-    header .title,
-    header .search,
-    header .search-switch .box,
-    header .search-switch .box span.open,
-    header .search-switch .box span.close
-  `).removeClass('active');
+
+$(document).on('click', (e) => {
+  if(!$(e.target).is('.menu-switch, .menu-switch *')&& !$(e.target).is('aside, aside *') && $('.menu-switch .box').hasClass('active')) {
+    $(`
+      aside,
+      .container,
+      header .menu-switch .box,
+      header .menu-switch .box span.open,
+      header .menu-switch .box span.close
+    `).removeClass('active');
+  }
+
+  if(!$(e.target).is('.search-switch, .search-switch *')&& !$(e.target).is('.search, .search *') && $('.search-switch .box').hasClass('active')) {
+    $(`
+      header .title,
+      header .search,
+      header .search-switch .box,
+      header .search-switch .box span.open,
+      header .search-switch .box span.close
+    `).removeClass('active');
+  }
 })
 
 $(document).on('click', 'header .search-switch', () => {
