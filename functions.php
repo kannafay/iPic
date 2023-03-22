@@ -57,6 +57,16 @@ function get_foot() {
 }
 
 
+// 网站分页
+require 'inc/modules/pagination.php';
+
+// 面包屑导航
+require 'inc/modules/breadcrumb.php';
+
+// 自动添加页面模板
+require 'inc/modules/add-page.php';
+
+
 // 缩略图
 if( function_exists('add_theme_support') ) {
   add_theme_support('post-thumbnails', array('post','page'));
@@ -76,35 +86,6 @@ function catch_that_image() {
 }
 
 
-
-// 网站分页
-function wp_pagination() {
-  global $wp_query, $wp_rewrite;
-  $wp_query->query_vars['paged'] > 1 ? $current = $wp_query->query_vars['paged'] : $current = 1;  
-  $pagination = array(
-    'base' => @add_query_arg('paged','%#%'),
-    'format' => '',
-    'total' => $wp_query->max_num_pages,
-    'current' => $current,
-    'show_all' => false,
-    'type' => 'plain',
-    'end_size'=>'2',
-    'mid_size'=>'2',
-    'prev_text' => '<', //♂
-    'next_text' => '>' //♀
-  ); 
-  if( $wp_rewrite -> using_permalinks() )
-    $pagination['base'] = user_trailingslashit( trailingslashit( remove_query_arg('s',get_pagenum_link(1) ) ) . 'page/%#%/', 'paged');
-  if( !empty($wp_query -> query_vars['s']) )
-    $pagination['add_args'] = array('s'=>get_query_var('s'));
-  echo paginate_links($pagination);
-}
-
-if( home_url(add_query_arg(array())) == home_url().'/page/1' ) {
-  wp_redirect( home_url(), 302);
-}
-
-
 // 网站标题
 function show_wp_title(){
   global $page, $paged;
@@ -116,10 +97,6 @@ function show_wp_title(){
   if ( $paged >= 2 || $page >= 2 )
     echo ' &#8211; ' . sprintf( '第%s页', max( $paged, $page ) );
 }
-
-
-// 面包屑导航
-require 'inc/modules/breadcrumb.php';
 
 
 // 搜索排除页面
@@ -152,4 +129,14 @@ function main_menu_fallback() {
       </ul>
     </div>';
   }
+}
+
+function icp_gov_url() {
+  if(get_option("ipic_icp_gov")) { 
+    $patterns = "/\d+/";
+    $strs = get_option("ipic_icp_gov");
+    preg_match_all($patterns,$strs,$arr);
+    $icp_gov_url = 'https://www.beian.gov.cn/portal/registerSystemInfo?recordcode='.implode($arr[0]);
+  }
+  return $icp_gov_url;
 }

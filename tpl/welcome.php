@@ -1,6 +1,6 @@
 <?php
 
-/*Template Name: 欢迎*/
+/*Template Name: 维护/隐私模板*/
 
 if(!get_option('ipic_private') || is_user_logged_in()) {
   wp_redirect(home_url(), 302);

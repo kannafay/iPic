@@ -57,7 +57,7 @@
     width:20em;
     height:28em; 
     position:absolute;
-    top:50%;
+    top:45%;
     left:50%;
     transform:translate(-50%,-50%);
   }
@@ -437,6 +437,32 @@
   } 
 </style>
 
+<style>
+  footer {
+    width: 100vw;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  footer > * {
+    margin-bottom: 5px;
+  }
+  footer > *:last-child {
+    margin-bottom: 0;
+  }
+  footer a {
+    color: #999;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all .3s ease;
+  }
+  footer a:hover {
+    color: #333;
+  }
+</style>
+
 <div class="container">
   <div class="bubble bubble-shadow"></div>
   <div class="bubble bubble-origin"></div>
@@ -457,3 +483,17 @@
 <div class="leave leave-2"></div>
 <div class="leave leave-3"></div>
 <div class="leave leave-4"></div>
+
+<footer>
+  <?php
+    if(get_option('ipic_icp')) { ?>
+      <div class="icp"><a href="https://beian.miit.gov.cn" target="_blank"><?=get_option('ipic_icp')?></a></div>
+    <?php }
+  ?>
+
+  <?php
+    if(get_option('ipic_icp_gov')) { ?>
+      <div class="icp-gov"><a href="<?=icp_gov_url()?>" target="_blank"><?=get_option('ipic_icp_gov')?></a></div>
+    <?php }
+  ?>
+</footer>

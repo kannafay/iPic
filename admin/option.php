@@ -3,11 +3,13 @@
 @$ipic_private = stripslashes($_POST['ipic_private']);
 @$ipic_private_tpl = stripslashes($_POST['ipic_private_tpl']);
 @$ipic_icp = stripslashes($_POST['ipic_icp']);
+@$ipic_icp_gov = stripslashes($_POST['ipic_icp_gov']);
 
 if(@stripslashes($_POST['ipic_option'])){
   update_option('ipic_private', $ipic_private);
   update_option('ipic_private_tpl', $ipic_private_tpl);
   update_option('ipic_icp', $ipic_icp);
+  update_option('ipic_icp_gov', $ipic_icp_gov);
 }
 
 ?>
@@ -23,6 +25,7 @@ if(@stripslashes($_POST['ipic_option'])){
             <fieldset>
               <label><input type='checkbox' name='ipic_private' value='true' <?=get_option('ipic_private') == 'true' ? 'checked' : ""?>/>开启</label>
             </fieldset>
+            <p class="description">请确保您的页面中含有别名为〔welcome〕的页面，并启用〔维护/隐私模板〕模板。</p>
           </td>
         </tr>
         <tr>
@@ -30,10 +33,7 @@ if(@stripslashes($_POST['ipic_option'])){
           <td>
             <select name="ipic_private_tpl" id="ipic_private_tpl">
               <option value="" <?=get_option("ipic_private_tpl") == '' ? 'selected' : ''?>>咖啡与落叶</option>
-              <option value="2" <?=get_option("ipic_private_tpl") == '2' ? 'selected' : ''?>>2</option>
-              <option value="3" <?=get_option("ipic_private_tpl") == '3' ? 'selected' : ''?>>3</option>
-              <option value="4" <?=get_option("ipic_private_tpl") == '4' ? 'selected' : ''?>>4</option>
-              <option value="5" <?=get_option("ipic_private_tpl") == '5' ? 'selected' : ''?>>5</option>
+              <option value="2" <?=get_option("ipic_private_tpl") == '2' ? 'selected' : ''?>>Bing搜索页</option>
             </select>
           </td>
         </tr>
@@ -41,6 +41,12 @@ if(@stripslashes($_POST['ipic_option'])){
           <th scope="row">ICP备案号</th>
           <td>
             <input type='text' name='ipic_icp' value='<?=get_option('ipic_icp')?>' class="regular-text"/>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">公网安备备案号</th>
+          <td>
+            <input type='text' name='ipic_icp_gov' value='<?=get_option('ipic_icp_gov')?>' class="regular-text"/>
           </td>
         </tr>
       </tbody>
