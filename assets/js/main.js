@@ -64,11 +64,11 @@ $(document).ready(function() {
   $(document).scroll(function() {
 		let scroll = $(window).scrollTop();
 		if(scroll > position) {
-			console.log('scrollDown');
+			// console.log('scrollDown');
       $('header .title .the-title').removeClass("active");
       $('header .title .backtop').removeClass("active");
 		} else {
-			console.log('scrollUp');
+			// console.log('scrollUp');
       $('header .title .the-title').addClass("active");
       $('header .title .backtop').addClass("active");
 		}
