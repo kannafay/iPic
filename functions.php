@@ -1,5 +1,16 @@
 <?php
 
+add_action('admin_menu', 'add_theme_options_menu');
+function add_theme_options_menu() {
+  add_theme_page(
+    'iPic主题设置',
+    'iPic主题设置',
+    'edit_theme_options',
+    'ipic_option',
+    'ipic_option_admin'
+  );
+}
+
 // welcome!!!
 function welcome() {
   if ( !is_user_logged_in() && !is_login()) {
@@ -12,8 +23,13 @@ function welcome() {
   }
 }
 
-// welcome();
+if(get_option('ipic_private')) {
+  welcome();
+}
 
+function ipic_option_admin() {
+  require get_template_directory()."/admin/option.php";
+}
 
 // 引入自定义文件
 function file_url() {
@@ -118,5 +134,22 @@ add_filter('pre_get_posts', function($wp_query){
 // 注册菜单
 register_nav_menus(array(        
   'main_menu' => '顶部菜单',
-  'side_menu' => '侧边栏菜单',
+  // 'side_menu' => '侧边栏菜单',
 ));
+
+function main_menu_fallback() {
+  if(1) {
+    echo '<div class="main_menu">
+      <ul class="menu">
+        <li><a href="'.home_url().'/" class="active">网站首页</a></li>
+        <li><a href="'.home_url().'/wp-admin/nav-menus.php" class="menu-set">设置菜单</a></li>
+      </ul>
+    </div>';
+  } else {
+    echo '<div class="main_menu">
+      <ul class="menu">
+        <li><a href="'.home_url().'" class="active">网站首页</a></li>
+      </ul>
+    </div>';
+  }
+}

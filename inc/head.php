@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="renderer" content="webkit">
   <title><?=show_wp_title()?></title>
+  <link rel="shortcut icon" href="<?=has_site_icon() ? site_icon_url() : ''?>" type="image/x-icon">
   <link rel="stylesheet" href="<?=file_url()?>/assets/css/style.css">
   <link rel="stylesheet" href="<?=file_url()?>/assets/static/iconfont/iconfont.css">
   <script src="<?=file_url()?>/assets/js/jquery.min.js"></script>

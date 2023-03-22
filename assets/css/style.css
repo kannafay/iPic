@@ -136,7 +136,7 @@ header .search-switch .box span.close.active {
 }
 
 header .center {
-  width: calc(100% - 140px);
+  width: calc(100% - 132px);
   height: 100%;
   position: relative;
   overflow: hidden;
@@ -465,8 +465,8 @@ main .new ul li .title a {
 main .new ul li .info {
   width: 100%;
   border-top: 1px dashed #eee;
-  margin-top: 8px;
-  padding-top: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -520,7 +520,7 @@ main .new ul li .info .date span {
   border-radius: 5px;
   transition: var(--tr);
 }
-.pagination > *:last-child {
+.pagination > *:nth-last-child(2) {
   margin-right: 0;
 }
 .pagination > *:hover {
@@ -615,7 +615,7 @@ main .new ul li .info .date span {
 
 .single .main .text .title {
   margin-bottom: 20px;
-  padding-bottom: 18px;
+  padding-bottom: 20px;
   border-bottom: 1px dashed #eee;
   color: #333;
   font-size: 18px;
@@ -952,37 +952,70 @@ main .new ul li .info .date span {
 
 @media screen and (max-width: 600px) {
   header {
-    padding: 0 20px;
+    padding: 0 10px;
   }
   header .center {
-    width: calc(100% - 120px);
+    width: calc(100% - 108px);
   }
   main {
-    padding: 0 20px;
-    padding-top: 20px;
+    padding: 0 10px;
+    padding-top: 10px;
   }
   main .new ul {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+    grid-gap: 10px;
   }
   main .new ul li .cover {
-    height: 350px;
+    height: 360px;
   }
   main .new ul li section {
-    min-height: calc(100% - 350px);
+    min-height: calc(100% - 360px);
+  }
+  .pagination {
+    padding: 0;
+  }
+  .pagination > * {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+    margin-right: 5px;
+  }
+  aside {
+    padding: 10px;
+  }
+  aside .main_menu ul li a, 
+  aside .main_menu ul li a * {
+    font-size: 14px;
+  }
+  aside .main_menu > ul > li.menu-item-has-children > a > .arrow {
+    font-size: 17px;
+  }
+  .single {
+    margin-top: 10px;
+  }
+  .single .main .text {
+    padding: 12px;
+    padding-top: 15px;
+  }
+  .single .main .text .title {
+    margin-bottom: 12px;
+    padding-bottom: 13px;
+  }
+  .single .main .text .content > *,
+  .single .main .text .content p a img {
+    margin-top: 12px;
   }
   footer {
-    margin-top: 20px;
-    padding: 20px;
+    padding: 20px 10px;
   }
 }
 
 @media screen and (max-width: 500px) {
   main .new ul li .cover {
-    height: 280px;
+    height: 290px;
   }
   main .new ul li section {
-    min-height: calc(100% - 280px);
+    min-height: calc(100% - 290px);
   }
   main .new ul li .title a {
     font-size: 14px;
@@ -1004,19 +1037,19 @@ main .new ul li .info .date span {
 
 @media screen and (max-width: 400px) {
   main .new ul li .cover {
-    height: 200px;
+    height: 210px;
   }
   main .new ul li section {
-    min-height: calc(100% - 200px);
+    min-height: calc(100% - 210px);
   }
 }
 
 @media screen and (max-width: 300px) {
   main .new ul li .cover {
-    height: 140px;
+    height: 150px;
   }
   main .new ul li section {
-    min-height: calc(100% - 140px);
+    min-height: calc(100% - 150px);
   }
 }
 

@@ -95,12 +95,13 @@ $(document).ready(function() {
   $(menu_a).each(function() {
     if(!$(this).parent().hasClass('menu-item-has-children')) {
       $(this).attr('data-pjax', '');
-
       if($(this).attr('href') == window.location.href) {
         $(this).addClass('active');
       }
     }
   })
+
+  $('.menu-set').removeAttr('data-pjax');
 
   $(menu_parent).each(function(i) {
     menu_parent_hight[i] = $(this).innerHeight();
@@ -136,4 +137,5 @@ $(document).ready(function() {
       }
     })
   })
+
 })

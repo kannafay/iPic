@@ -42,11 +42,6 @@ const fix_url = () => {
   $('[data-pjax] a, a[data-pjax]').each(function() {
     if($(this).attr('href')) {
       cur_url = $(this).attr('href').replace(/\/\?_pjax=%23pjax-box/, '');
-      if(cur_url.indexOf('/page/1') > -1) {
-        cur_url = cur_url.replace(/\/page\/1/, '');
-      } else if(cur_url.indexOf('/page/1/') > -1) {
-        cur_url = cur_url.replace(/\/page\/1\//, '');
-      }
       $(this).attr('href', cur_url);
     }
   })
@@ -55,23 +50,28 @@ fix_url();
 
 
 const menu_func = () => {
-  $(menu_a).each(function(){
-    if(!$(this).parent().hasClass('menu-item-has-children')) {
-      $(this).attr('data-pjax', '');
-
-      if($(this).attr('href') == window.location.href) {
-        $(this).addClass('active');
-      } else {
-        $(this).removeClass('active');
+  $(document).ready(()=>{
+    $(menu_a).each(function(){
+      if(!$(this).parent().hasClass('menu-item-has-children')) {
+        $(this).attr('data-pjax', '');
+  
+        if($(this).attr('href') == window.location.href) {
+          $(this).addClass('active');
+        } else {
+          $(this).removeClass('active');
+        }
       }
-    }
-  })
-  $(menu_parent).each(function(i) {
-    $(this).children('a').removeClass('current');
-    $(this.querySelectorAll('ul li ul li a')).each(function() {
-      if($(this).hasClass('active')) {
-        $(menu_parent[i]).children('a').addClass('current');
-      }
+    })
+  
+    $('.menu-set').removeAttr('data-pjax');
+  
+    $(menu_parent).each(function(i) {
+      $(this).children('a').removeClass('current');
+      $(this.querySelectorAll('ul li ul li a')).each(function() {
+        if($(this).hasClass('active')) {
+          $(menu_parent[i]).children('a').addClass('current');
+        }
+      })
     })
   })
 }
