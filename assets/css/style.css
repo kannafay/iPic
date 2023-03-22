@@ -12,7 +12,7 @@
 }
 
 html, body {
-  height: 100%;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   overflow-y: overlay;
@@ -61,10 +61,11 @@ img {
 
 
 header {
-  width: 100%;
+  width: 100vw;
   height: 70px;
   position: fixed;
   top: 0;
+  left: 0;
   background-color: rgba(255 255 255 / .7);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
@@ -73,8 +74,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 2;
-  overflow: hidden;
+  z-index: 999;
+  /* overflow: hidden; */
 }
 
 header .menu-switch,
@@ -284,36 +285,35 @@ footer a:hover {
 }
 
 
-
-
 .container {
-  position: absolute;
+  position: relative;
   width: 100%;
-  min-height: calc(100% - 70px);
+  min-height: calc(100vh - 70px);
   margin-top: 70px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transform: translateX(0);
   transition: var(--tr);
+  
 }
 .container.active {
   transform: translateX(300px);
 }
 
 aside {
+  width: 300px;
+  height: calc(100vh - 70px);
   position: fixed;
   left: 0;
   top: 70px;
   padding: 20px;
-  transform: translateX(-100%);
-  width: 300px;
-  height: calc(100% - 70px);
   background-color: #fff;
   border-right: 1px solid #eee;
   overflow: auto;
   overflow: overlay;
   z-index: 1;
+  transform: translateX(-100%);
   transition: var(--tr);
 }
 aside.active {
@@ -993,7 +993,7 @@ main .new ul li .info .date span {
   }
   main .new ul li .info .cate {
     max-width: 100%;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
   }
   main .new ul li .info .cate,
   main .new ul li .info .cate a,

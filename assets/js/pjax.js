@@ -7,6 +7,7 @@ $(document).on('submit', 'form[data-pjax]', function(event) {
     fragment: '#pjax-box'
   })
 
+  $(this).children('input').blur();
   $('#title').text($(this).children('input').val());
 })
 
@@ -16,7 +17,7 @@ $(document).on('pjax:send', function() {
 
 $(document).on('pjax:complete', function() {
   $('#pjax-box, #title').removeClass('active');
-
+  $('html, body').animate({scrollTop: 0}, 0);
   img_preview();
   fix_url();
   menu_func();
