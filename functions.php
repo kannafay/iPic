@@ -36,23 +36,27 @@ function file_url() {
   return get_template_directory_uri();
 }
 
-function get_head() {
+function get_the_head() {
   require 'inc/head.php';
 }
 
-function get_home() {
+function get_the_home() {
   require 'inc/home.php';
 }
 
-function get_single() {
-  require 'inc/content.php';
+function get_the_single() {
+  require 'inc/content-single.php';
 }
 
-function get_aside() {
+function get_the_page() {
+  require 'inc/content-page.php';
+}
+
+function get_the_aside() {
   require 'inc/aside.php';
 }
 
-function get_foot() {
+function get_the_foot() {
   require 'inc/foot.php';
 }
 

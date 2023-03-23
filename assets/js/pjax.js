@@ -1,15 +1,20 @@
-$(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-box', {
-  fragment: '#pjax-box'
-})
-
-$(document).on('submit', 'form[data-pjax]', function(event) {
-  $.pjax.submit(event, '#pjax-box', {
-    fragment: '#pjax-box'
+if ($.support.pjax) {
+  $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-box', {
+    fragment: '#pjax-box',
+    timeout: 6000,
   })
+  
+  $(document).on('submit', 'form[data-pjax]', function(event) {
+    $.pjax.submit(event, '#pjax-box', {
+      fragment: '#pjax-box',
+      timeout: 6000,
+    })
+  
+    $(this).children('input').blur();
+    $('#title').text($(this).children('input').val());
+  })
+}
 
-  $(this).children('input').blur();
-  $('#title').text($(this).children('input').val());
-})
 
 $(document).on('pjax:send', function() {
   $('#pjax-box, #title').addClass('active');

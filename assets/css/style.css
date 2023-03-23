@@ -516,12 +516,9 @@ main .new ul li .info .date span {
   height: 35px;
   color: #333;
   font-size: 15px;
-  margin-right: 10px;
+  margin: 0 5px;
   border-radius: 5px;
   transition: var(--tr);
-}
-.pagination > *:nth-last-child(2) {
-  margin-right: 0;
 }
 .pagination > *:hover {
   background-color: #f5f5f5;
@@ -698,6 +695,7 @@ main .new ul li .info .date span {
   border-radius: 5px;
   overflow: auto;
   background-color: #f5f5f5;
+  font-family: 'PingFang SC','Consolas','Courier New','monospace';
 }
 
 .single .main .text .content pre code {
@@ -889,6 +887,12 @@ main .new ul li .info .date span {
 }
 
 
+.page {
+  margin-top: 0;
+}
+.page .main {
+  width: 100%;
+}
 
 
 @media screen and (min-width: 1567px) {
@@ -925,6 +929,9 @@ main .new ul li .info .date span {
   }
   .single .side .tag .post-tags {
     grid-gap: 6px;
+  }
+  .page .main {
+    width: 100%;
   }
 }
 
@@ -975,10 +982,10 @@ main .new ul li .info .date span {
     padding: 0;
   }
   .pagination > * {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     font-size: 13px;
-    margin-right: 5px;
+    margin: 0 2px;
   }
   aside {
     padding: 10px;
@@ -1004,6 +1011,9 @@ main .new ul li .info .date span {
   .single .main .text .content > *,
   .single .main .text .content p a img {
     margin-top: 12px;
+  }
+  .page {
+    margin-top: 0;
   }
   footer {
     padding: 20px 10px;
