@@ -32,7 +32,7 @@ if(@stripslashes($_POST['ipic_option'])){
           <th scope="row">维护/隐私模式 - 模板</th>
           <td>
             <select name="ipic_private_tpl" id="ipic_private_tpl">
-              <option value="" <?=get_option("ipic_private_tpl") == '' ? 'selected' : ''?>>咖啡与落叶</option>
+              <option value="" <?=get_option("ipic_private_tpl") == '' ? 'selected' : ''?>>落叶与咖啡</option>
               <option value="2" <?=get_option("ipic_private_tpl") == '2' ? 'selected' : ''?>>Bing搜索页</option>
             </select>
           </td>

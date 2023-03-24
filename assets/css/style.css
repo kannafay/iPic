@@ -288,7 +288,7 @@ footer a:hover {
 .container {
   position: relative;
   width: 100%;
-  min-height: calc(100vh - 70px);
+  min-height: 100vh;
   padding-top: 70px;
   background-color: #f5f5f5;
   display: flex;
@@ -522,7 +522,7 @@ main .new ul li .info .date span {
   transition: var(--tr);
 }
 .pagination > *:hover {
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 .pagination > span,
 .pagination > span:hover {
@@ -531,7 +531,7 @@ main .new ul li .info .date span {
 }
 .pagination .current,
 .pagination .current:hover {
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 .pagination .prev,
 .pagination .next {
