@@ -69,7 +69,7 @@ header {
   background-color: rgba(255 255 255 / .7);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #e2e2e2;
   padding: 0 30px;
   display: flex;
   align-items: center;
@@ -264,7 +264,7 @@ footer {
   background-color: rgba(255 255 255 / .7);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  border-top: 1px solid #eee;
+  border-top: 1px solid #e2e2e2;
   padding: 20px 30px;
   margin-top: 30px;
 }
@@ -310,7 +310,7 @@ aside {
   top: 70px;
   padding: 20px;
   background-color: #fff;
-  border-right: 1px solid #eee;
+  border-right: 1px solid #e2e2e2;
   overflow: auto;
   overflow: overlay;
   z-index: 1;
@@ -465,7 +465,7 @@ main .new ul li .title a {
 
 main .new ul li .info {
   width: 100%;
-  border-top: 1px dashed #eee;
+  border-top: 1px dashed #e2e2e2;
   margin-top: 10px;
   padding-top: 10px;
   display: flex;
