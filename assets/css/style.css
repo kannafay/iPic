@@ -614,7 +614,7 @@ main .new ul li .info .date span {
 .single .main .text .title {
   margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px dashed #eee;
+  border-bottom: 1px dashed #e2e2e2;
   color: #333;
   font-size: 18px;
 }
