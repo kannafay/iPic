@@ -558,7 +558,7 @@ main .new ul li .info .date span {
 }
 .breadcrumb li a:hover {
   color: #333;
-  background-color: #f5f5f5;
+  background-color: #fff;
 }
 
 .breadcrumb li:first-child a::before {
