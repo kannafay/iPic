@@ -2,10 +2,10 @@
 
 add_action('admin_menu', 'add_theme_options_menu');
 function add_theme_options_menu() {
-  add_theme_page(
+  add_menu_page(
     'iPic主题设置',
     'iPic主题设置',
-    'edit_theme_options',
+    'edit_themes',
     'ipic_option',
     'ipic_option_admin'
   );

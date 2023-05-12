@@ -29,6 +29,13 @@ $(document).on('pjax:complete', function() {
 })
 
 
+$(document).ready(()=>{
+  img_preview();
+  fix_url();
+  menu_func();
+})
+
+
 const img_preview = () => {
   let postImg = document.querySelectorAll('.single .main .content img');
   if(postImg.length > 0) {
@@ -40,18 +47,18 @@ const img_preview = () => {
     })
   }
 }
-img_preview();
+
 
 
 const fix_url = () => {
   $('[data-pjax] a, a[data-pjax]').each(function() {
     if($(this).attr('href')) {
-      cur_url = $(this).attr('href').replace(/\/\?_pjax=%23pjax-box/, '');
+      cur_url = $(this).attr('href').replace(/\/?\?_pjax=%23pjax-box|\/page\/1/g, '');
       $(this).attr('href', cur_url);
     }
   })
 }
-fix_url();
+
 
 
 const menu_func = () => {
@@ -59,8 +66,8 @@ const menu_func = () => {
     $(menu_a).each(function(){
       if(!$(this).parent().hasClass('menu-item-has-children')) {
         $(this).attr('data-pjax', '');
-  
-        if($(this).attr('href') == window.location.href) {
+        now_url = window.location.href.replace(/(\/page\/\d+)?/g, '');
+        if($(this).attr('href') == now_url) {
           $(this).addClass('active');
         } else {
           $(this).removeClass('active');

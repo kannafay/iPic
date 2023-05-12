@@ -1025,8 +1025,12 @@ main .new ul li .info .date span {
   main .new ul li .cover {
     height: 290px;
   }
+  main .new ul li .title {
+    padding: 0 2px;
+  }
   main .new ul li section {
     min-height: calc(100% - 290px);
+    padding: 5px 0px 0 0px;
   }
   main .new ul li .title a {
     font-size: 14px;
@@ -1034,10 +1038,12 @@ main .new ul li .info .date span {
   main .new ul li .info {
     flex-direction: column;
     align-items: start;
+    margin-top: 5px;
+    padding-top: 5px;
   }
   main .new ul li .info .cate {
     max-width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
   }
   main .new ul li .info .cate,
   main .new ul li .info .cate a,
@@ -1063,13 +1069,3 @@ main .new ul li .info .date span {
     min-height: calc(100% - 150px);
   }
 }
-
-
-
-
-/* main .new ul li .cover {
-  height: 200px;
-}
-main .new ul li section {
-  min-height: calc(100% - 200px);
-} */

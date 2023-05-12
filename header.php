@@ -11,25 +11,32 @@
       <div class="the-title">
         <span id="title">
           <?php
-            if( is_home() ) {
+            function now_page() {
               global $page, $paged;
-              bloginfo('name');
               if ( $paged >= 2 || $page >= 2 )
               echo ' &#8211; ' . sprintf( '第%s页', max( $paged, $page ) );
+            }
+            if( is_home() ) {
+              bloginfo('name');
+              now_page();
 
             } else if ( is_single() || is_page() ) {
               the_title();
 
             } else if ( is_archive() || is_category() || is_tag() ) {
               single_cat_title();
+              now_page();
 
             } else if ( is_author() ) {
               the_author_nickname();
 
             } else if ( is_date() ) {
               the_time('Y年m月');
+              now_page();
+
             } else if ( is_search() ) {
               the_search_query();
+              now_page();
             }
           ?>
         </span>

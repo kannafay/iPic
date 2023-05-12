@@ -2,12 +2,14 @@
 
 @$ipic_private = stripslashes($_POST['ipic_private']);
 @$ipic_private_tpl = stripslashes($_POST['ipic_private_tpl']);
+@$ipic_cover_size = stripslashes($_POST['ipic_cover_size']);
 @$ipic_icp = stripslashes($_POST['ipic_icp']);
 @$ipic_icp_gov = stripslashes($_POST['ipic_icp_gov']);
 
 if(@stripslashes($_POST['ipic_option'])){
   update_option('ipic_private', $ipic_private);
   update_option('ipic_private_tpl', $ipic_private_tpl);
+  update_option('ipic_cover_size', $ipic_cover_size);
   update_option('ipic_icp', $ipic_icp);
   update_option('ipic_icp_gov', $ipic_icp_gov);
 }
@@ -34,6 +36,15 @@ if(@stripslashes($_POST['ipic_option'])){
             <select name="ipic_private_tpl" id="ipic_private_tpl">
               <option value="" <?=get_option("ipic_private_tpl") == '' ? 'selected' : ''?>>落叶与咖啡</option>
               <option value="2" <?=get_option("ipic_private_tpl") == '2' ? 'selected' : ''?>>Bing搜索页</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">封面尺寸</th>
+          <td>
+            <select name="ipic_cover_size" id="ipic_cover_size">
+              <option value="" <?=get_option("ipic_cover_size") == '' ? 'selected' : ''?>>大图</option>
+              <option value="2" <?=get_option("ipic_cover_size") == '2' ? 'selected' : ''?>>小图</option>
             </select>
           </td>
         </tr>
